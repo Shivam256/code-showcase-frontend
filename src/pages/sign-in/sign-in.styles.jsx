@@ -30,9 +30,9 @@ export const SignInSection = styled("div")(() => ({
   // backgroundColor:'red',
 
   "& h1": {
-    fontWeight: 800,
+    fontWeight: 900,
     fontSize: "3.5em",
-    lineHeight: "110%",
+    lineHeight: "120%",
     marginBottom:'20px',
   },
 }));
@@ -104,11 +104,3 @@ export const SignInButton = styled(Button)(({theme})=>({
     
 }))
 
-export const SignInOption = styled(Button)(({theme})=>({
-  width:'50px',
-  height:'50px',
-  backgroundColor:theme.palette.colors.background1,
-  boxShadow:theme.shadows.shadow1,
-  color:'black',
-  margin:'10px 20px',
-}))

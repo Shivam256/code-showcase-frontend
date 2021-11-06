@@ -10,11 +10,11 @@ import {
   SignInButton,
   SignInForm,
   SignInOptions,
-  SignInOption
 } from "./sign-in.styles";
 import {Icon} from '@iconify/react';
 import SignInImage from "../../assets/images/signInPageImage.png";
 import "animate.css";
+import IconButton from "../../components/icon-button/icon-button.component";
 
 const SignIn = () => {
   const theme = useTheme();
@@ -32,8 +32,8 @@ const SignIn = () => {
           <SignInOptions>
             <h3>or</h3>
             <div className="options-container">
-                <SignInOption><Icon icon="flat-color-icons:google" fontSize={'2em'}/></SignInOption>
-                <SignInOption><Icon icon="akar-icons:github-fill" fontSize={'2em'}/></SignInOption>
+                <IconButton><Icon icon="flat-color-icons:google" fontSize={'2em'}/></IconButton>
+                <IconButton><Icon icon="akar-icons:github-fill" fontSize={'2em'}/></IconButton>
 
             </div>
           </SignInOptions>
