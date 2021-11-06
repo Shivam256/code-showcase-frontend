@@ -9,7 +9,9 @@ function App() {
   const theme = useTheme();
   return (
     <ThemeConfig>
-      <Router/>
+      <div className="App">
+        <Router />
+      </div>
     </ThemeConfig>
   );
 }

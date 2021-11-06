@@ -1,43 +1,41 @@
-
-import { useMemo } from 'react';
+// import { useMemo } from "react";
 // material
-import { CssBaseline } from '@mui/material';
-import { createTheme, ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import { CssBaseline } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 //
-import shape from './shape';
-import palette from './palette';
-import typography from './typography';
-import breakpoints from './breakpoints';
-
-import shadows, { customShadows } from './shadows';
+import shape from "./shape";
+import palette from "./palette";
+import typography from "./typography";
+import breakpoints from "./breakpoints";
+import shadows from "./shadows";
 
 // ----------------------------------------------------------------------
 
-
-
 export default function ThemeConfig({ children }) {
+  // const themeOptions = useMemo(
+  //   () => ({
+  //     palette,
+  //     shape,
+  //     typography,
+  //     breakpoints,
+  //     shadows,
+  //   }),
+  //   []
+  // );
 
-  const themeOptions = useMemo(
-    () => ({
-      palette,
-      shape,
-      typography,
-      breakpoints,
-      shadows,
-      customShadows,
-    }),
-    []
-  );
-
-  const theme = createTheme(themeOptions);
+  const theme = createTheme({
+    palette,
+    shape,
+    typography,
+    breakpoints,
+    shadows,
+  });
 
   return (
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
-    </StyledEngineProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
   );
 }
