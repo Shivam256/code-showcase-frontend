@@ -3,21 +3,24 @@ import { styled, Drawer, Button } from "@mui/material";
 export const SidebarContainer = styled("div")(() => ({
   width: "fit-content",
   height: "fit-content",
+  position:'fixed',
 }));
 
 export const SidebarDrawer = styled(Drawer)(({ theme }) => ({
   backgroundColor: "transparent",
   height: "90vh",
+  width:'fit-content',
 
   "& .MuiBackdrop-root": {
     background: "none",
     backgroundColor: "transparent",
     filter: "brightness(80%)",
+    width:'fit-content',
   },
 
   "& .MuiPaper-root": {
     height: "96vh",
-    width: "300px",
+    width: "20vw",
     margin: "2vh 0 2vh 20px",
     backgroundColor: theme.palette.colors.background1,
     overflowX: "hidden",

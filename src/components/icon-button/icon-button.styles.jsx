@@ -8,5 +8,9 @@ export const IconButtonContainer = styled(Button)(({theme})=>({
     color:'black',
     margin:'10px 20px',
 
+    '&:hover':{
+      backgroundColor:theme.palette.colors.background1,
+    }
+
   }))
   

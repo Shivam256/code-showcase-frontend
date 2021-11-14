@@ -25,7 +25,7 @@ const SidebarBtn = ({ children, ...props }) => {
   );
 };
 
-const Sidebar = () => {
+const Sidebar = ({toggleScreenState}) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const theme = useTheme();
 
@@ -35,15 +35,11 @@ const Sidebar = () => {
     username: "Sam_2910",
   });
 
-  const openSidebar = () => {
-    setIsSidebarOpen(true);
-  };
-  const closeSidebar = () => {
-    setIsSidebarOpen(false);
-  };
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+    toggleScreenState();
   };
+
   return (
     <SidebarContainer theme={theme}>
       <IconButton onClick={toggleSidebar}>
@@ -53,12 +49,12 @@ const Sidebar = () => {
           color={theme.palette.colors.secondary}
         />
       </IconButton>
-      <SidebarDrawer open={isSidebarOpen} anchor="left" onOpen={openSidebar}>
+      <SidebarDrawer open={isSidebarOpen} anchor="left" onOpen={toggleSidebar}>
         <MainSidebar>
           <Icon
             icon="eva:close-circle-outline"
             className="close-icon"
-            onClick={closeSidebar}
+            onClick={toggleSidebar}
           />
           <div className="user-info">
             <Avatar src={user.profilePic} />

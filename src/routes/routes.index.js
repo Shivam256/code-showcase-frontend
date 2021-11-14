@@ -34,7 +34,18 @@ export default function Router() {
     {
         path:'/sign-in',
         element:<SignIn/>
-    }
+    },
+    {
+      path:'/',
+      element:<MainLayout/>,
+      children:[
+        {
+          path:'/feed',
+          element:<Feed/>
+        }
+      ]
+    },
+   
   ]);
 }
 
@@ -42,6 +53,18 @@ const Sidebar = Loadable(
   lazy(() => import("../components/sidebar/sidebar.component"))
 );
 
+
+//layouts
+const MainLayout = Loadable(
+  lazy(()=>import("../layouts/main/MainLayout.component"))
+)
+
+
+//pages
 const SignIn = Loadable(
     lazy(()=>import('../pages/sign-in/sign-in.component'))
 )
+const Feed = Loadable(
+  lazy(()=> import("../pages/feed/feed.component"))
+)
+
