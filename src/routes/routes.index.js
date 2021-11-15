@@ -42,6 +42,26 @@ export default function Router() {
         {
           path:'/feed',
           element:<Feed/>
+        },
+        {
+          path:'/explore',
+          element:<Explore/>
+        },
+        {
+          path:'/activity',
+          element:<Activity/>
+        },
+        {
+          path:'/messages',
+          element:<Messages/>
+        },
+        {
+          path:'/profile',
+          element:<Profile/>
+        },
+        {
+          path:'/settings',
+          element:<Settings/>
         }
       ]
     },
@@ -67,4 +87,18 @@ const SignIn = Loadable(
 const Feed = Loadable(
   lazy(()=> import("../pages/feed/feed.component"))
 )
-
+const Explore = Loadable(
+  lazy(()=>import("../pages/explore/explore.component"))
+)
+const Activity = Loadable(
+  lazy(()=>import("../pages/activity/activity.component"))
+)
+const Messages = Loadable(
+  lazy(()=>import("../pages/messages/messages.component"))
+)
+const Profile = Loadable(
+  lazy(()=>import("../pages/profile/profile.component"))
+)
+const Settings = Loadable(
+  lazy(()=>import('../pages/settings/settings.component'))
+)

@@ -17,10 +17,10 @@ import {
   LogoutBtn,
 } from "./sidebar.styles";
 
-const SidebarBtn = ({ children, ...props }) => {
+const SidebarBtn = ({ url,children, ...props }) => {
   return (
     <SidebarBtnContainer {...props}>
-      <Link to="#">{children}</Link>
+      <Link to={url}>{children}</Link>
     </SidebarBtnContainer>
   );
 };
@@ -62,12 +62,12 @@ const Sidebar = ({toggleScreenState}) => {
             <Rating name="read-only" value={5} readOnly size="large" />
           </div>
           <div className="sidebar-btns">
-            <SidebarBtn selected={true}>FEED</SidebarBtn>
-            <SidebarBtn>EXPLORE</SidebarBtn>
-            <SidebarBtn>ACTIVITY</SidebarBtn>
-            <SidebarBtn>MESSAGES</SidebarBtn>
-            <SidebarBtn>PROFILE</SidebarBtn>
-            <SidebarBtn>SETTINGS</SidebarBtn>
+            <SidebarBtn  url="/feed" selected={true}>FEED</SidebarBtn>
+            <SidebarBtn url="/explore" >EXPLORE</SidebarBtn>
+            <SidebarBtn url="/activity" >ACTIVITY</SidebarBtn>
+            <SidebarBtn url="/messages" >MESSAGES</SidebarBtn>
+            <SidebarBtn url="/profile" >PROFILE</SidebarBtn>
+            <SidebarBtn url="/settings" >SETTINGS</SidebarBtn>
           </div>
 
           <LogoutBtn>LOGOUT</LogoutBtn>
