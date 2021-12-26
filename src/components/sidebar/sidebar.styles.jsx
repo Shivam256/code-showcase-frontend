@@ -25,7 +25,7 @@ export const SidebarDrawer = styled(Drawer)(({ theme }) => ({
     backgroundColor: theme.palette.colors.background1,
     overflowX: "hidden",
     borderRadius: theme.shape.borderRadius,
-    boxShadow: theme.shadows.shadow1,
+    boxShadow: theme.shadows.shadow3,
   },
 }));
 

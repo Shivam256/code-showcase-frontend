@@ -1,11 +1,8 @@
 import React from "react";
-
-import { Card } from "@mui/material";
-
 import Filter from "../../components/filter/filter.component";
 import techmap from "../../helpers/tech.map";
-
-import {FeedPage,FilterContainer} from './feed.styles';
+import ProjectFeedPost from "../../components/projectFeedPost/projectFeedPost.component";
+import { FeedPage, FeedSection, FilterContainer } from "./feed.styles";
 
 const Feed = () => {
   const addProject = {
@@ -22,6 +19,10 @@ const Feed = () => {
           <Filter tech={tech} key={tech.name} />
         ))}
       </FilterContainer>
+      <FeedSection>
+        <ProjectFeedPost />
+        <div>this is a recommendataion</div>
+      </FeedSection>
     </FeedPage>
   );
 };

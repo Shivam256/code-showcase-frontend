@@ -12,7 +12,7 @@ export const Page = styled('div')(()=>({
 export const Content = styled("div")(({fullScreen})=>({
     height:'96vh',
     width:fullScreen?'96vw':'77vw',
-    margin:fullScreen?'2vh auto':'2vh 0 2vh 23vw',
+    margin:fullScreen?'2vh 5vw':'2vh 0 2vh 23vw',
     transition:'all 0.2s ease-in',
     padding:'10px',
 

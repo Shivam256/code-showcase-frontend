@@ -11,6 +11,7 @@ export const FilterIcon = styled("div")(({theme})=>({
     display:'grid',
     placeItems:'center',
     margin:'0 10px',
+    transition: 'all 0.1s ease-in',
 
     '& svg':{
         display:'block',
@@ -23,5 +24,9 @@ export const FilterIcon = styled("div")(({theme})=>({
     '& .add-project':{
         transform:'scale(6)',
         color:theme.palette.colors.primary
+    },
+    '&:hover':{
+        border:'5px solid',
+        borderColor:theme.palette.colors.primary,
     }
 }))
