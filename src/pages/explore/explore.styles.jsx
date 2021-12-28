@@ -8,6 +8,20 @@ export const ExplorePage = styled("div")(() => ({
   alignItems: "center",
 }));
 
+export const SearchBar = styled("input")(({theme})=>({
+  width:'30%',
+  height:'40px',
+  border:'none',
+  // backgroundColor:'red',
+  borderRadius:8,
+  border:`2px solid ${theme.palette.colors.primary}`,
+  textAlign:'center',
+  '&:focus':{
+    outline:'none'
+  }
+
+}))
+
 export const ProjectsContainer = styled("div")(() => ({
   width: "100%",
   flex: 1,

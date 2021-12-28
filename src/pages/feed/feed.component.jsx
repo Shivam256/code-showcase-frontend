@@ -1,10 +1,19 @@
-import React from "react";
-import Filter from "../../components/filter/filter.component";
+import React ,{useState} from "react";
+
 import techmap from "../../helpers/tech.map";
+
+//componsnts
 import ProjectFeedPost from "../../components/projectFeedPost/projectFeedPost.component";
+import Filter from "../../components/filter/filter.component";
+import CreateProjectModal from "../../components/createProjectModal/createProjectModal.component";
+
+//styles
 import { FeedPage, FeedSection, FilterContainer } from "./feed.styles";
 
 const Feed = () => {
+  const [showCreateProjectModal, setShowCreateProjectModal] = useState(false);
+
+  const toggleCreateProjectModal = () => {setShowCreateProjectModal(!showCreateProjectModal)}
   const addProject = {
     name: "add",
     iconName: "carbon:add",
@@ -14,7 +23,7 @@ const Feed = () => {
   return (
     <FeedPage>
       <FilterContainer>
-        <Filter tech={addProject} isAddProject={true} onClick={() => {}} />
+        <Filter tech={addProject} isAddProject={true} onClick={toggleCreateProjectModal} />
         {techmap.map((tech) => (
           <Filter tech={tech} key={tech.name} />
         ))}
@@ -23,6 +32,7 @@ const Feed = () => {
         <ProjectFeedPost />
         <div>this is a recommendataion</div>
       </FeedSection>
+      <CreateProjectModal state={showCreateProjectModal} toggleModal={toggleCreateProjectModal}/>
     </FeedPage>
   );
 };

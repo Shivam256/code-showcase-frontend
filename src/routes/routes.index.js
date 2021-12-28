@@ -62,6 +62,10 @@ export default function Router() {
         {
           path:'/settings',
           element:<Settings/>
+        },
+        {
+          path:'/project/:id',
+          element:<Project/>
         }
       ]
     },
@@ -101,4 +105,7 @@ const Profile = Loadable(
 )
 const Settings = Loadable(
   lazy(()=>import('../pages/settings/settings.component'))
+)
+const Project = Loadable(
+  lazy(()=>import("../pages/project/project.component"))
 )
