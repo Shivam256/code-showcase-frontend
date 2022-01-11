@@ -14,7 +14,7 @@ const palette = {
   },
   textGradients:{
     txtGrad1:{
-      background:'linear-gradient(142deg, rgba(247,37,133,1) 0%, rgba(114,9,183,1) 50%);',
+      background:'linear-gradient(142deg, rgba(247,37,133,1) 0%, rgba(114,9,183,1) 70%);',
       backgroundClip:'text',
       textFillColor:'transparent',
     }

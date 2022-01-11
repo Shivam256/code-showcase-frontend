@@ -82,8 +82,8 @@ export const SidebarBtnContainer = styled(Button)(({ theme,selected }) => ({
   margin: "10px 0",
   fontSize: "1em",
   padding: "3px",
-  backgroundColor:selected?'red':'',
   color:theme.palette.colors.color3,
+
 
   "& a": {
     textDecoration: "none",
@@ -92,6 +92,14 @@ export const SidebarBtnContainer = styled(Button)(({ theme,selected }) => ({
     fontWeight: 600,
     letterSpacing:2,
     color:selected?'white':'',
+    display:'flex',
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'start',
+    '& svg':{
+      margin:'0 10px 0 30px',
+      fontSize:'1.2em'
+    }
     
   },
 }));
@@ -107,4 +115,7 @@ export const LogoutBtn = styled(Button)(({theme})=>({
   color:theme.palette.colors.secondary,
 
   ...theme.palette.textGradients.txtGrad1,
+  '& svg':{
+    marginRight:10
+  }
 }))

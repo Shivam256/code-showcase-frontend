@@ -7,7 +7,8 @@ const ProjectPreview = ({ imageUrl }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const nums = [26, 33, 45, 40, 37];
+    // const nums = [26, 33, 45, 40, 37];
+    const nums = [19,26,22,26,30];
     const idx = Math.floor(Math.random() * nums.length);
     setspanNumber(nums[idx]);
   }, []);
