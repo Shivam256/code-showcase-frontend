@@ -78,7 +78,7 @@ export const SidebarBtnContainer = styled(Button)(({ theme,selected }) => ({
   height: "fit-content",
   ...theme.palette.textGradients.txtGrad1,
   border: `2px solid ${theme.palette.colors.primary}`,
-  borderRadius: 10,
+  borderRadius: 5,
   margin: "10px 0",
   fontSize: "1em",
   padding: "3px",

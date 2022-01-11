@@ -1,5 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
+import { Scrollbars } from "react-custom-scrollbars";
 
 import ThemeConfig from "./theme/theme";
 import { useTheme } from "@mui/material";

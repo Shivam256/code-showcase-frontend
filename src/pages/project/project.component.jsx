@@ -2,13 +2,18 @@ import React from "react";
 
 //libs
 import Slider from "react-slick";
-import { Grid } from "@mui/material";
+import { Avatar, Grid ,Rating} from "@mui/material";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 //styled
-import { ProjectImage, ProjectImagesContainer,ProjectDataContainer,ProjectSectionGrid } from "./project.styles";
+import {
+  ProjectImage,
+  ProjectImagesContainer,
+  ProjectDataContainer,
+  ProjectSectionGrid,
+} from "./project.styles";
 
 const Project = () => {
   const settings = {
@@ -21,8 +26,8 @@ const Project = () => {
     slidesToScroll: 1,
   };
   return (
-    <Grid container sx={{width:'100%',height:'100%'}}>
-      <ProjectSectionGrid item md={6} >
+    <Grid container sx={{ width: "100%", height: "100%" }}>
+      <ProjectSectionGrid item md={6}>
         <ProjectImagesContainer>
           <Slider {...settings}>
             <ProjectImage url="https://mercherworld.com/wp-content/uploads/2021/08/1628511633-instagram.jpe" />
@@ -31,10 +36,17 @@ const Project = () => {
           </Slider>
         </ProjectImagesContainer>
         <ProjectDataContainer>
-            erihfwn
+          <Avatar src="https://images.unsplash.com/photo-1542596594-649edbc13630?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" />
+
+          <h2>Instagram</h2>
+          <Rating name="read-only" value={3} readOnly size="large" />
+          <div className="description">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat repellendus esse nostrum deserunt iste laboriosam, dolor soluta eum excepturi fugit vel, numquam quam recusandae, consequatur facere. Beatae suscipit eligendi quos.
+              Id delectus, fugit ea soluta asperiores voluptas facere magni est quod accusantium facilis? Dolorem consequatur facilis harum porro atque obcaecati quam assumenda aliquid, at labore aperiam maxime animi, cum mollitia.
+          </div>
         </ProjectDataContainer>
       </ProjectSectionGrid>
-      <ProjectSectionGrid item md={6} >
+      <ProjectSectionGrid item md={6}>
         section 2
       </ProjectSectionGrid>
     </Grid>

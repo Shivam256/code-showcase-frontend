@@ -29,5 +29,16 @@ export const ProjectDataContainer = styled(Card)(({theme})=>({
     backgroundColor:'white',
     width:'80%',
     marginTop:50,
-    boxShadow:theme.shadows.shadow3
+    boxShadow:theme.shadows.shadow3,
+    padding:'20px',
+    '& .MuiAvatar-root':{
+        float:'right',
+        transform:'scale(1.2)',
+        // margin:'10px 10px 0 0',
+    },
+    // '& .MuiRating-icon':{
+    //     transform:'scale(1.5)',
+    //     margin:'0 5px',
+
+    // }
 }))
