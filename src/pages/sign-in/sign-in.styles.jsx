@@ -8,6 +8,9 @@ export const SignInPage = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.colors.background1,
   display: "flex",
   flexDirection: "column",
+  backgroundImage: `url('https://images.unsplash.com/photo-1546146830-2cca9512c68e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80')`,
+  backgroundPosition: "center",
+  backgroundSize: "cover",
   "& h1": {
     ...theme.palette.textGradients.txtGrad1,
     fontWeight: 500,
@@ -17,8 +20,9 @@ export const SignInPage = styled("div")(({ theme }) => ({
     width: "100%",
     flex: 1,
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     alignItems: "flex-end",
+
   },
 }));
 

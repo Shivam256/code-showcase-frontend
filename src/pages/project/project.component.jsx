@@ -2,13 +2,13 @@ import React from "react";
 
 //libs
 import Slider from "react-slick";
-import { Avatar, Grid, Rating } from "@mui/material";
+import { Avatar, Grid, Rating, Tooltip } from "@mui/material";
 import { Icon } from "@iconify/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 //components
-import CustomInput from '../../components/custom-input/customInput.componsnt';
+import CustomInput from "../../components/custom-input/customInput.componsnt";
 
 //styled
 import {
@@ -23,7 +23,6 @@ import {
   ProjectLink,
 } from "./project.styles";
 import techmap from "../../helpers/tech.map";
-
 
 const Project = () => {
   const settings = {
@@ -76,8 +75,11 @@ const Project = () => {
           <h3>LINKS:</h3>
           <div className="main-link-container">
             <ProjectLink href="/">
-              <Icon icon="akar-icons:github-fill" color="#000"/>
+              <Tooltip title="Github" placement="bottom" arrow>
+                <Icon icon="akar-icons:github-fill" color="#000" />
+              </Tooltip>
             </ProjectLink>
+
             <ProjectLink href="/">
               <Icon icon="logos:gitlab" />
             </ProjectLink>
@@ -85,16 +87,16 @@ const Project = () => {
               <Icon icon="mdi:web" />
             </ProjectLink>
             <ProjectLink href="/">
-              <Icon icon="ant-design:code-sandbox-outlined" color="#000"/>
+              <Icon icon="ant-design:code-sandbox-outlined" color="#000" />
             </ProjectLink>
             <ProjectLink href="/">
-              <Icon icon="akar-icons:codepen-fill" color="#000"/>
+              <Icon icon="akar-icons:codepen-fill" color="#000" />
             </ProjectLink>
           </div>
         </LinksContainer>
         <RatingsContainer>
           <h3>COMMENTS:</h3>
-          <CustomInput variant="standard" label="Add your comment." fullSize/>
+          <CustomInput variant="standard" label="Add your comment." fullSize />
         </RatingsContainer>
       </ProjectSectionGrid>
     </Grid>
