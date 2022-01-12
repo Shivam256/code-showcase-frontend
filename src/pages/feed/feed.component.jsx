@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 
 import techmap from "../../helpers/tech.map";
 
@@ -6,14 +6,23 @@ import techmap from "../../helpers/tech.map";
 import ProjectFeedPost from "../../components/projectFeedPost/projectFeedPost.component";
 import Filter from "../../components/filter/filter.component";
 import CreateProjectModal from "../../components/createProjectModal/createProjectModal.component";
+import UserOverview from "../../components/userOverview/userOverview.component";
 
 //styles
-import { FeedPage, FeedSection, FilterContainer } from "./feed.styles";
+import {
+  FeedPage,
+  FeedSection,
+  FilterContainer,
+  FeedPostSection,
+  RecommendationSection
+} from "./feed.styles";
 
 const Feed = () => {
   const [showCreateProjectModal, setShowCreateProjectModal] = useState(false);
 
-  const toggleCreateProjectModal = () => {setShowCreateProjectModal(!showCreateProjectModal)}
+  const toggleCreateProjectModal = () => {
+    setShowCreateProjectModal(!showCreateProjectModal);
+  };
   const addProject = {
     name: "add",
     iconName: "carbon:add",
@@ -23,16 +32,34 @@ const Feed = () => {
   return (
     <FeedPage>
       <FilterContainer>
-        <Filter tech={addProject} isAddProject={true} onClick={toggleCreateProjectModal} />
+        <Filter
+          tech={addProject}
+          isAddProject={true}
+          onClick={toggleCreateProjectModal}
+        />
         {techmap.map((tech) => (
           <Filter tech={tech} key={tech.name} />
         ))}
       </FilterContainer>
       <FeedSection>
+        <FeedPostSection>
         <ProjectFeedPost />
-        <div>this is a recommendataion</div>
+          <ProjectFeedPost />
+          <ProjectFeedPost />
+
+        </FeedPostSection>
+        <RecommendationSection>
+          <h3>TOP CODERS:</h3>
+          <UserOverview/>
+          <UserOverview/>
+          <UserOverview/>
+
+        </RecommendationSection>
       </FeedSection>
-      <CreateProjectModal state={showCreateProjectModal} toggleModal={toggleCreateProjectModal}/>
+      <CreateProjectModal
+        state={showCreateProjectModal}
+        toggleModal={toggleCreateProjectModal}
+      />
     </FeedPage>
   );
 };

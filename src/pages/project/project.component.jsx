@@ -2,10 +2,13 @@ import React from "react";
 
 //libs
 import Slider from "react-slick";
-import { Avatar, Grid ,Rating} from "@mui/material";
-
+import { Avatar, Grid, Rating } from "@mui/material";
+import { Icon } from "@iconify/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+//components
+import CustomInput from '../../components/custom-input/customInput.componsnt';
 
 //styled
 import {
@@ -13,7 +16,14 @@ import {
   ProjectImagesContainer,
   ProjectDataContainer,
   ProjectSectionGrid,
+  StackContainer,
+  Stack,
+  LinksContainer,
+  RatingsContainer,
+  ProjectLink,
 } from "./project.styles";
+import techmap from "../../helpers/tech.map";
+
 
 const Project = () => {
   const settings = {
@@ -41,13 +51,51 @@ const Project = () => {
           <h2>Instagram</h2>
           <Rating name="read-only" value={3} readOnly size="large" />
           <div className="description">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat repellendus esse nostrum deserunt iste laboriosam, dolor soluta eum excepturi fugit vel, numquam quam recusandae, consequatur facere. Beatae suscipit eligendi quos.
-              Id delectus, fugit ea soluta asperiores voluptas facere magni est quod accusantium facilis? Dolorem consequatur facilis harum porro atque obcaecati quam assumenda aliquid, at labore aperiam maxime animi, cum mollitia.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat
+            repellendus esse nostrum deserunt iste laboriosam, dolor soluta eum
+            excepturi fugit vel, numquam quam recusandae, consequatur facere.
+            Beatae suscipit eligendi quos. Id delectus, fugit ea soluta
+            asperiores voluptas facere magni est quod accusantium facilis?
+            Dolorem consequatur facilis harum porro atque obcaecati quam
+            assumenda aliquid, at labore aperiam maxime animi, cum mollitia.
           </div>
         </ProjectDataContainer>
       </ProjectSectionGrid>
       <ProjectSectionGrid item md={6}>
-        section 2
+        <StackContainer>
+          <h3>STACK:</h3>
+          <div className="main-stack-container">
+            {techmap.slice(0, 4).map((tech) => (
+              <Stack>
+                <Icon icon={tech.iconName} height={60} width={60} />
+              </Stack>
+            ))}
+          </div>
+        </StackContainer>
+        <LinksContainer>
+          <h3>LINKS:</h3>
+          <div className="main-link-container">
+            <ProjectLink href="/">
+              <Icon icon="akar-icons:github-fill" color="#000"/>
+            </ProjectLink>
+            <ProjectLink href="/">
+              <Icon icon="logos:gitlab" />
+            </ProjectLink>
+            <ProjectLink href="/">
+              <Icon icon="mdi:web" />
+            </ProjectLink>
+            <ProjectLink href="/">
+              <Icon icon="ant-design:code-sandbox-outlined" color="#000"/>
+            </ProjectLink>
+            <ProjectLink href="/">
+              <Icon icon="akar-icons:codepen-fill" color="#000"/>
+            </ProjectLink>
+          </div>
+        </LinksContainer>
+        <RatingsContainer>
+          <h3>COMMENTS:</h3>
+          <CustomInput variant="standard" label="Add your comment." fullSize/>
+        </RatingsContainer>
       </ProjectSectionGrid>
     </Grid>
   );

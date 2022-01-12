@@ -11,21 +11,42 @@ export const ProjectPreviewContainer = styled(ButtonBase)(({ spanNum, url }) => 
   cursor: "pointer",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "flex-end",
+  justifyContent: "space-between",
   padding: "10px",
   transition: 'all 0.2s ease-in-out',
   "&:hover": {
     background: `linear-gradient(360deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 20.87%), url('${url}')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
-
-    "& h3": {
-      opacity: 1,
+    '& .bookmarkIcon':{
+      opacity:1,
     },
+    '& .project-info-bar':{
+      opacity:1
+    }
+   
     // background:'red',
   },
   "& h3": {
-    color: "white",
-    opacity: 0,
+    color: "white"
   },
+  '& .bookmarkIcon':{
+    alignSelf:'flex-end',
+    transform:'scale(1.5)',
+    opacity:0
+  },
+  '& .project-info-bar':{
+    display:'flex',
+    width:'100%',
+    flexDirection:'row',
+    justifyContent:'space-between',
+    opacity:0
+  },
+  '& .star-container':{
+    color:'#fff',
+    fontSize:'1.2em',
+    '& svg':{
+      transform:'scale(1.3)'
+    }
+  }
 }));

@@ -8,6 +8,7 @@ export const Post = styled(Card)(({theme})=>({
     display:'flex',
     flexDirection:'column',
     justifyContent:'space-between',
+    margin:'0 0 40px 0',
 }))
 
 export const Header = styled("div")(()=>({
@@ -29,7 +30,7 @@ export const PostImage = styled("div")(({url})=>({
 }))
 
 export const UsernameLink = styled(Link)(({theme})=>({
-    color:theme.palette.colors.primary,
+    color:theme.palette.colors.secondary,
     textDecoration:'none',
     fontWeight:700,
     marginLeft:20
@@ -68,6 +69,7 @@ export const ProjectButton = styled(Button)(({theme})=>({
     height:'fit-content',
     color:'#fff',
     fontWeight:800,
+    borderRadius:5,
     letterSpacing:2,
     ...theme.palette.gradients.gradient1
 }))

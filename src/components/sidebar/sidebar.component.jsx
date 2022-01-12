@@ -34,8 +34,8 @@ const Sidebar = ({ toggleScreenState }) => {
 
   const [user, setUser] = useState({
     profilePic:
-      "https://images.unsplash.com/photo-1521341957697-b93449760f30?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTc0fHx1c2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    username: "Sam_2910",
+      "https://www.nawpic.com/media/2020/levi-ackerman-nawpic-38.jpg",
+    username: "Levi_2910",
   });
 
   const toggleSidebar = () => {
