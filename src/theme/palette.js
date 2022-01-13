@@ -1,9 +1,11 @@
 const palette = {
   colors: {
-    primary: "#F72585",
-    secondary: "#7209B7",
+    primary: "rgb(247, 37, 133)",
+    secondary: "rgb(114, 9, 183)",
     background1:"#ffffff",
     color3:'#3A0CA3',
+    primaryFaint:"rgba(247, 37, 132, 0.514)",
+    secondaryFaint:"rgb(114, 9, 183,0.514)"
   },
   gradients: {
     gradient1: {

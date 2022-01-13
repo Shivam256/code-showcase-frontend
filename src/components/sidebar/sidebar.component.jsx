@@ -6,7 +6,7 @@ import IconButton from "../icon-button/icon-button.component";
 //libs
 import { Icon } from "@iconify/react";
 import { Avatar, useTheme, Rating, Button } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation,useNavigate } from "react-router-dom";
 
 //styled
 import {
@@ -19,11 +19,11 @@ import {
 
 const SidebarBtn = ({ url, children }) => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   return (
-    <SidebarBtnContainer selected>
-      <Link to={url} selected={pathname === url}>
+    <SidebarBtnContainer selected={pathname === url} onClick={()=>{navigate(url)}}>
         {children}
-      </Link>
     </SidebarBtnContainer>
   );
 };
@@ -33,8 +33,7 @@ const Sidebar = ({ toggleScreenState }) => {
   const theme = useTheme();
 
   const [user, setUser] = useState({
-    profilePic:
-      "https://www.nawpic.com/media/2020/levi-ackerman-nawpic-38.jpg",
+    profilePic: "https://www.nawpic.com/media/2020/levi-ackerman-nawpic-38.jpg",
     username: "Levi_2910",
   });
 
