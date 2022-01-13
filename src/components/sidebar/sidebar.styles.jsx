@@ -81,7 +81,7 @@ export const SidebarBtnContainer = styled(Button)(({ theme, selected }) => ({
   margin: "10px 0",
   fontSize: "1em",
   padding: "3px",
-  fontWeight: 600,
+  fontWeight: selected?800:600,
   letterSpacing: 2,
   display: "flex",
   flexDirection: "row",
