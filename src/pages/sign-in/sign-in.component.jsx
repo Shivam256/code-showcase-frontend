@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 
 import { Button, useTheme } from "@mui/material";
 
 import { SignInPage, SignInContent, SignInContainer } from "./sign-in.styles";
-import { Icon } from "@iconify/react";
-import SignInImage from "../../assets/images/signInPageImage.png";
 import "animate.css";
 import IconButton from "../../components/icon-button/icon-button.component";
 import Tabs from "@mui/material/Tabs";
@@ -15,8 +13,14 @@ import Box from "@mui/material/Box";
 //components
 import CustomInput from "../../components/custom-input/customInput.componsnt";
 
+
+//redux
+import useAuth from "../../hooks/useAuth";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+
+ 
 
   return (
     <div
@@ -51,11 +55,29 @@ function a11yProps(index) {
 
 const SignIn = () => {
   const [value, setValue] = React.useState(0);
+  const [registerUser, setRegisterUser] = useState({
+    username: "",
+    password: "",
+    confirmPassword: "",
+    email: "",
+  });
+
+  const handleSignUpInput = (e) => {
+    setRegisterUser({ ...registerUser, [e.target.name]: e.target.value });
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   const theme = useTheme();
+
+  const {register} = useAuth();
+
+
+  const handleSignUpClick = () => {
+    register(registerUser);
+  }
+
   return (
     <SignInPage theme={theme}>
       <div className="sign-in-image"></div>
@@ -79,14 +101,36 @@ const SignIn = () => {
             <Button>LOG IN</Button>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            <CustomInput variant="standard" label="Username" fullSize />
-            <CustomInput variant="standard" label="Email" fullSize />
-            <CustomInput variant="standard" label="Password" fullSize />
-            <CustomInput variant="standard" label="Confirm Password" fullSize />
-          <Button>SIGN UP</Button>
-
+            <CustomInput
+              variant="standard"
+              label="Username"
+              fullSize
+              name="username"
+              onChange={handleSignUpInput}
+            />
+            <CustomInput
+              variant="standard"
+              label="Email"
+              fullSize
+              name="email"
+              onChange={handleSignUpInput}
+            />
+            <CustomInput
+              variant="standard"
+              label="Password"
+              fullSize
+              name="password"
+              onChange={handleSignUpInput}
+            />
+            <CustomInput
+              variant="standard"
+              label="Confirm Password"
+              fullSize
+              name="confirmPassword"
+              onChange={handleSignUpInput}
+            />
+            <Button onClick={handleSignUpClick}>SIGN UP</Button>
           </TabPanel>
-    
         </SignInContainer>
       </SignInContent>
     </SignInPage>
