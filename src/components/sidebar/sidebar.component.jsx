@@ -8,6 +8,8 @@ import { Icon } from "@iconify/react";
 import { Avatar, useTheme, Rating, Button } from "@mui/material";
 import { Link, useLocation,useNavigate } from "react-router-dom";
 
+
+import useAuth from '../../hooks/useAuth';
 //styled
 import {
   SidebarContainer,
@@ -32,6 +34,8 @@ const Sidebar = ({ toggleScreenState }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const theme = useTheme();
 
+  const {logout} = useAuth();
+
   const [user, setUser] = useState({
     profilePic: "https://www.nawpic.com/media/2020/levi-ackerman-nawpic-38.jpg",
     username: "Levi_2910",
@@ -41,6 +45,10 @@ const Sidebar = ({ toggleScreenState }) => {
     setIsSidebarOpen(!isSidebarOpen);
     toggleScreenState();
   };
+
+  const handleLogout = () =>{
+    logout();
+  }
 
   return (
     <SidebarContainer theme={theme}>
@@ -93,7 +101,7 @@ const Sidebar = ({ toggleScreenState }) => {
             </SidebarBtn>
           </div>
 
-          <LogoutBtn>
+          <LogoutBtn onClick={handleLogout}>
             {" "}
             <Icon icon="ri:logout-box-line" color="#7209B7" />
             LOGOUT

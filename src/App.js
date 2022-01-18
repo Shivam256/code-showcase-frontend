@@ -5,13 +5,18 @@ import ThemeConfig from "./theme/theme";
 import { useTheme } from "@mui/material";
 import Router from "./routes/routes.index";
 
+import JwtProvider from "./providers/jwtProvider";
+
 function App() {
   const theme = useTheme();
   return (
     <ThemeConfig>
-      <div className="App">
-        <Router />
-      </div>
+      <JwtProvider>
+        <div className="App" theme={theme}>
+          
+          <Router />
+        </div>
+      </JwtProvider>
     </ThemeConfig>
   );
 }

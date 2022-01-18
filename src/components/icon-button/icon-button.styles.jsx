@@ -6,7 +6,7 @@ export const IconButtonContainer = styled(Button)(({theme})=>({
     backgroundColor:theme.palette.colors.background1,
     boxShadow:theme.shadows.shadow1,
     color:'black',
-    margin:'10px 20px',
+    margin:'5px 20px',
 
     '&:hover':{
       backgroundColor:theme.palette.colors.background1,

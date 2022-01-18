@@ -1,4 +1,4 @@
-import { styled, TextField, Button } from "@mui/material";
+import { styled, TextField, Button, Box } from "@mui/material";
 
 export const SignInPage = styled("div")(({ theme }) => ({
   width: "100vw",
@@ -22,20 +22,57 @@ export const SignInPage = styled("div")(({ theme }) => ({
   },
 }));
 
+export const SignInContent = styled("div")(({theme}) => ({
+  height: "100%",
+  flex: 1,
+  padding: "20px 30px",
+  '& .page-title':{
+    fontSize:'2.5em',
+    marginLeft:20,
+    marginTop:20,
+    ...theme.palette.textGradients.txtGrad1
+  },
+  '& .page-subtitle':{
+    fontSize:'1.5em',
+    marginLeft:20,
+    ...theme.palette.textGradients.txtGrad1,
+    fontWeight:400
+  },
+  '& .icon-button-container':{
+    width:'fit-content',
+    margin:'0 auto',
+    textAlign:'center',
+  }
+}));
 
-export const SignInContent = styled("div")(()=>({
-  height:'100%',
-  flex:1,
-  padding: '20px 30px',
-}))
-
-
-export const SignInContainer = styled("div")(({theme})=>({
-  width:'60%',
-  height:'60%',
-  margin:'50px auto',
-  backgroundColor:theme.palette.colors.background1,
-  boxShadow:theme.shadows.shadow1,
+export const SignInContainer = styled("div")(({ theme }) => ({
+  width: "60%",
+  height: "60%",
+  margin: "50px auto 20px auto",
+  backgroundColor: theme.palette.colors.background1,
+  boxShadow: theme.shadows.shadow1,
   // border:'1px solid black',
-  borderRadius:10,
-}))
+  borderRadius: 10,
+  '& .MuiTab-root':{
+    color:theme.palette.colors.primary
+  },
+  '& .MuiTab-root.Mui-selected':{
+    color:theme.palette.colors.secondary
+  },
+  '& .MuiTabs-indicator':{
+    backgroundColor:theme.palette.colors.secondary
+  }
+}));
+
+export const TabContainer = styled(Box)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  padding:'30px',
+  '& form':{
+    width:'100%',
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'center',
+  }
+}));

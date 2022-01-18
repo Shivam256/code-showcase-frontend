@@ -58,7 +58,8 @@ const techmap = [
       name:'SQLite',
       iconName:'carbon:sql',
       imageUrl:'https://www.andreasreiterer.at/wp-content/uploads/2017/11/react-logo-825x510.jpg'
-    }
+    },
+
   ];
   
   export default techmap;

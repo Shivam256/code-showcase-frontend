@@ -1,4 +1,4 @@
-import { Button, styled } from "@mui/material";
+import { Button, styled, Typography } from "@mui/material";
 
 export const CreateProjectModalContainer = styled("div")(({theme}) => ({
   width: "60vw",
@@ -29,4 +29,10 @@ export const CustomButton = styled(Button)(({theme})=>({
   backgroundColor:'white',
   ...theme.palette.textGradients.txtGrad1,
   border:`1px solid ${theme.palette.colors.secondary}`
+}))
+
+export const CustomErrorText = styled(Typography)(({hide})=>({
+  fontSize:'0.8em',
+  color:'red',
+  display:!hide?'none':'block'
 }))
