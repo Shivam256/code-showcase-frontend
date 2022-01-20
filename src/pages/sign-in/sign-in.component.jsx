@@ -93,7 +93,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/project/61e92e6299b6a6a3f15d838e");
+      navigate("/project/61e9836aa379ef626e673536");
     }
   }, [isLoggedIn]);
 

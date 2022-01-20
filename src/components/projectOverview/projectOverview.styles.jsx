@@ -3,7 +3,6 @@ import { styled } from "@mui/material";
 export const ProjectOverviewContainer = styled("div")(({ url }) => ({
   width: "100%",
   height: "40vh",
-  backgroundColor: "red",
   backgroundImage: `url('${url}')`,
   backgroundPosition: "center",
   backgroundSize: "cover",

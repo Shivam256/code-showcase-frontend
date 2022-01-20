@@ -35,7 +35,7 @@ export const ProjectImagesContainer = styled("div")(() => ({
 export const ProjectDataContainer = styled(Card)(({ theme }) => ({
   flex: 1,
   ...cardStyles(theme),
-
+  
   marginTop: 50,
 
   "& .MuiAvatar-root": {
@@ -68,6 +68,10 @@ export const StackContainer = styled(Card)(({ theme }) => ({
     flexWrap: "wrap",
     overflowX: "auto",
     justifyContent:'center',
+
+    '&::-webkit-scrollbar':{
+      display:'none'
+    }
   },
 
 }));
@@ -105,5 +109,16 @@ export const ProjectLink = styled("a")(()=>({
 export const RatingsContainer = styled(Card)(({theme})=>({
   ...cardStyles(theme),
   flex:1,
+
+  '& .rating-section':{
+    width:'100%',
+    height:'fit-content',
+    maxHeight:'50%',
+    overflowY:'scroll',
+    marginTop:15,
+    '&::-webkit-scrollbar':{
+      display:'none'
+    }
+  }
 
 }))

@@ -4,13 +4,15 @@ import { Grid } from "@mui/material";
 import { Icon } from "@iconify/react";
 import {Context} from '../../layouts/main/MainLayout.component';
 import { ProjectOverviewContainer } from "./projectOverview.styles";
+import {useNavigate} from 'react-router-dom';
 
-const ProjectOverview = () => {
+const ProjectOverview = ({project}) => {
   const props = React.useContext(Context);
+  const navigate = useNavigate()
 
   return (
-    <Grid item md={props.isFullScreen?3:4}>
-      <ProjectOverviewContainer url="https://images.unsplash.com/photo-1611944212129-29977ae1398c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80">
+    <Grid item md={props.isFullScreen?3:4} onClick={()=>{navigate(`/project/${project._id}`)}}>
+      <ProjectOverviewContainer url={project.images[0]}>
         <Icon
           icon="clarity:bookmark-line"
           className="bookmarkIcon"
@@ -18,7 +20,7 @@ const ProjectOverview = () => {
         />
 
         <div className="project-info-bar">
-          <h3 className="projectName">Project Name</h3>
+          <h3 className="projectName">{project.title}</h3>
           <span className="star-container">
             3{" "}
             <Icon

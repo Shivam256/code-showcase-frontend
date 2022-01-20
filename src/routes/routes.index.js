@@ -57,7 +57,7 @@ export default function Router() {
           element:<Messages/>
         },
         {
-          path:'/profile',
+          path:'/profile/:id',
           element:<Profile/>
         },
         {

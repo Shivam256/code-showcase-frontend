@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 
 import { ProjectPreviewContainer } from "./projectPreview.styles";
 
-const ProjectPreview = ({ imageUrl }) => {
+const ProjectPreview = ({ imageUrl,project }) => {
   const [spanNumber, setspanNumber] = useState(0);
   const navigate = useNavigate();
 
@@ -18,16 +18,16 @@ const ProjectPreview = ({ imageUrl }) => {
   return (
     <ProjectPreviewContainer
       spanNum={spanNumber}
-      url={imageUrl}
+      url={project.images[0]}
       onClick={() => {
-        navigate("/project/someId");
+        navigate(`/project/${project._id}`);
       }}
     >
       <Icon icon="clarity:bookmark-line" className="bookmarkIcon" color="#fff"/>
 
       <div className="project-info-bar">
-        <h3 className="projectName">Project Name</h3>
-        <span className="star-container">3 <Icon icon="codicon:star-full" className="bookmarkIcon" color="#fff"/> </span>
+        <h3 className="projectName">{project.title}</h3>
+        <span className="star-container">{project.overallRating || 0} <Icon icon="codicon:star-full" className="bookmarkIcon" color="#fff"/> </span>
       </div>
     </ProjectPreviewContainer>
   );

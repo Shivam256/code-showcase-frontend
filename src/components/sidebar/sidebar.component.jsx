@@ -91,7 +91,7 @@ const Sidebar = ({ toggleScreenState }) => {
               <Icon icon="jam:messages" color="#7209B7" />
               MESSAGES
             </SidebarBtn>
-            <SidebarBtn url="/profile">
+            <SidebarBtn url="/profile/61e9078099b6a6a3f15d837f">
               <Icon icon="iconoir:profile-circled" color="#7209B7" />
               PROFILE
             </SidebarBtn>
