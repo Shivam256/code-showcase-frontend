@@ -17,7 +17,7 @@ const useAuth = () => {
   const register = useCallback(async (userData) => {
     const response = await axios.post("/auth/signup", userData);
     console.log(response, "i am signup response");
-  });
+  },[]);
 
   const login = useCallback(async (userData) => {
     const response = await axios.post("/auth/login", userData);
@@ -28,12 +28,12 @@ const useAuth = () => {
       setSession(token);
       dispatch(loginSuccess({ user }));
     }
-  });
+  },[]);
 
   const logout = useCallback(async()=>{
       setSession(null);
       dispatch(logoutSuccess());
-  })
+  },[])
 
   const initializeAuth = useCallback(async () => {
     const accessToken = window.localStorage.getItem("accessToken");

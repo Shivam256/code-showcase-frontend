@@ -7,7 +7,7 @@ import Sidebar from "../../components/sidebar/sidebar.component";
 import { Page, Content } from "./MainLayout.styles";
 
 import {useSelector} from 'react-redux';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,useLocation} from 'react-router-dom';
 
 export const Context = React.createContext({})
 
@@ -15,6 +15,7 @@ const MainLayout = () => {
   const [isFullScreen,setIsFullScreen] = useState(true);
   const {isLoggedIn} = useSelector(state => state.auth);
   const navigate = useNavigate();
+  const {pathname} = useLocation();
   React.useEffect(()=>{
     console.log(isFullScreen);
   },[isFullScreen]);
@@ -23,7 +24,7 @@ const MainLayout = () => {
     if(!isLoggedIn){
       navigate('/sign-in');
     }else{
-      navigate('/feed');
+      navigate(pathname)
     }
   },[isLoggedIn])
   

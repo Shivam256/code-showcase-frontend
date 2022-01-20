@@ -20,7 +20,7 @@ const ProjectPreview = ({ imageUrl }) => {
       spanNum={spanNumber}
       url={imageUrl}
       onClick={() => {
-        navigate("/project/someid");
+        navigate("/project/someId");
       }}
     >
       <Icon icon="clarity:bookmark-line" className="bookmarkIcon" color="#fff"/>

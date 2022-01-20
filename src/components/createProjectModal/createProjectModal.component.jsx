@@ -9,6 +9,8 @@ import CustomInput from "../custom-input/customInput.componsnt";
 import { default as CreateButton } from "../custom-button/customButton.component";
 import StackModal from "./stackModal.component";
 
+import useProjects from "../../hooks/useProjects";
+
 import {
   CreateProjectModalContainer,
   CustomButton,
@@ -17,7 +19,7 @@ import {
 const CreateProjectModal = ({ state, toggleModal }) => {
   const [showStackModal, setShowStackModal] = useState(false);
   const [projectData, setProjectData] = useState({
-    name: "",
+    title: "",
     description: "",
     links: {
       github: null,
@@ -30,6 +32,7 @@ const CreateProjectModal = ({ state, toggleModal }) => {
     stack: [],
   });
 
+  const {createProject} = useProjects();
 
 
   const handleProjectInput = (e) => {
@@ -77,7 +80,8 @@ const CreateProjectModal = ({ state, toggleModal }) => {
     if(projectData.stack.length === 0){
       return;
     }
-    console.log(projectData);
+    console.log(projectData,"i am here");
+    createProject(projectData);
   }
 
   return (
@@ -90,7 +94,7 @@ const CreateProjectModal = ({ state, toggleModal }) => {
               <CustomInput
                 label="Project Name"
                 variant="standard"
-                name="name"
+                name="title"
                 onChange={handleProjectInput}
                 required
               />

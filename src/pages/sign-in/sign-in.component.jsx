@@ -6,7 +6,7 @@ import "animate.css";
 import { Icon } from "@iconify/react";
 import IconButton from "../../components/icon-button/icon-button.component";
 import { useAlert } from "react-alert";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 //components
 import CustomInput from "../../components/custom-input/customInput.componsnt";
 import CustomButton from "../../components/custom-button/customButton.component";
@@ -59,6 +59,7 @@ const SignIn = () => {
 
   const alert = useAlert();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const handleSignUpInput = (e) => {
     setRegisterUser({ ...registerUser, [e.target.name]: e.target.value });
@@ -92,7 +93,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/");
+      navigate("/project/61e92e6299b6a6a3f15d838e");
     }
   }, [isLoggedIn]);
 
