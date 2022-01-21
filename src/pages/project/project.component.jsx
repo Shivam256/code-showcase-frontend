@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 
 //libs
 import Slider from "react-slick";
-import { Avatar, Grid, Rating, Tooltip } from "@mui/material";
+import { Avatar, Grid, Rating, Tooltip, Popover, Button } from "@mui/material";
 import { Icon } from "@iconify/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useLocation, Link } from "react-router-dom";
-
+import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+// import useProjects from "../../hooks/useProjects";
 //components
 import CustomInput from "../../components/custom-input/customInput.componsnt";
 import UserRating from "../../components/rating/rating.component";
 import useProjects from "../../hooks/useProjects";
-
 
 //styled
 import {
@@ -31,6 +31,7 @@ import CustomButton from "../../components/custom-button/customButton.component"
 
 const Project = () => {
   const [project, setProject] = useState(null);
+  const [val, setVal] = useState(0);
   const settings = {
     arrows: false,
     dots: true,
@@ -40,13 +41,26 @@ const Project = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-  const [ratingData,setRatingData] = useState({
-    comment:"",
-    rating:0,
-  })
+  const [ratingData, setRatingData] = useState({
+    comment: "",
+    rating: 0,
+  });
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [iseProjectAuthor, setIsProjectAuthor] = useState(false);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const { user } = useSelector((state) => state.auth);
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   const location = useLocation();
-  const { getProject,postComment } = useProjects();
+  const { getProject, postComment, deleteProject } = useProjects();
 
   const getStackArray = (names) => {
     const arr = techmap.filter((a) => {
@@ -55,14 +69,7 @@ const Project = () => {
     return arr;
   };
 
-  const handlePostComment = () =>{
-    console.log(ratingData);
-    postComment(project._id,ratingData);
-    setRatingData({
-      comment:"",
-      rating:0
-    })
-  }
+  const navigate = useNavigate();
 
   useEffect(() => {
     const id = location.pathname.slice(9);
@@ -70,9 +77,31 @@ const Project = () => {
       setProject(res);
       console.log(res);
     });
-  }, [location,handlePostComment]);
+  }, [location, val]);
 
+  const handlePostComment = () => {
+    console.log(ratingData);
+    postComment(project._id, ratingData);
+    setRatingData({
+      comment: "",
+      rating: 0,
+    });
+    setVal(val + 1);
+  };
 
+  const handleDeleteProject = () => {
+    deleteProject(project._id);
+    navigate("/feed");
+  };
+
+  useEffect(() => {
+    if (project !== null && user !== null) {
+      console.log(project._id);
+      console.log(user.projects);
+    }
+  }, [user]);
+
+  
 
   return (
     <Grid container sx={{ width: "100%", height: "100%" }}>
@@ -89,11 +118,38 @@ const Project = () => {
               </Slider>
             </ProjectImagesContainer>
             <ProjectDataContainer>
-              <Avatar src="https://images.unsplash.com/photo-1542596594-649edbc13630?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" />
-
+              <Avatar
+                src={project.author.profilePic}
+                onClick={handleClick}
+                sx={{ cursor: "pointer" }}
+              />
+              <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "center",
+                }}
+                transformOrigin={{
+                  vertical: "bottom",
+                  horizontal: "center",
+                }}
+              >
+                <Link to={`/profile/${project.author._id}`}>
+                  {project.author.username}
+                </Link>
+              </Popover>
               <h2>{project.title}</h2>
-              <Rating name="read-only" value={project.overallRating || 0} readOnly size="large" />
+              <Rating
+                name="read-only"
+                value={project.overallRating || 0}
+                readOnly
+                size="large"
+              />
               <div className="description">{project.description}</div>
+              {/* <Button>DELETE</Button> */}
             </ProjectDataContainer>
           </ProjectSectionGrid>
           <ProjectSectionGrid item md={6}>
@@ -168,14 +224,28 @@ const Project = () => {
                 variant="standard"
                 label="Add your comment."
                 fullSize
-                onChange={(e) => {setRatingData({...ratingData,comment:e.target.value})}}
+                value={ratingData.comment}
+                onChange={(e) => {
+                  setRatingData({ ...ratingData, comment: e.target.value });
+                }}
               />
-              <Rating size="large" value={ratingData.rating} onChange={(ev,nv)=>{setRatingData({...ratingData,rating:nv})}}/>
-              <CustomButton sx={{float:'right'}} onClick={handlePostComment}>POST</CustomButton>
+              <Rating
+                size="large"
+                value={ratingData.rating}
+                onChange={(ev, nv) => {
+                  setRatingData({ ...ratingData, rating: nv });
+                }}
+              />
+              <CustomButton sx={{ float: "right" }} onClick={handlePostComment}>
+                POST
+              </CustomButton>
               <div className="rating-section">
-                {project.ratings.slice().reverse().map((a) => (
-                  <UserRating rating={a} />
-                ))}
+                {project.ratings
+                  .slice()
+                  .reverse()
+                  .map((a) => (
+                    <UserRating rating={a} />
+                  ))}
               </div>
             </RatingsContainer>
           </ProjectSectionGrid>

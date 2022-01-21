@@ -6,7 +6,6 @@ import { useTheme } from "@mui/material";
 import Router from "./routes/routes.index";
 
 import JwtProvider from "./providers/jwtProvider";
-import AuthGuard from "./guards/AuthGuard";
 
 function App() {
   const theme = useTheme();

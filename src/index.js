@@ -6,7 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./redux/store";
+import {store,persistor} from './redux/store';
+import { PersistGate } from 'redux-persist/lib/integration/react';
 //alert
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
@@ -24,9 +25,12 @@ ReactDOM.render(
   <React.StrictMode>
     <AlertProvider template={AlertTemplate} {...options}>
       <Provider store={store}>
+        <PersistGate persistor={persistor} loading={<div>loading ...</div>}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
+        </PersistGate>
+    
       </Provider>
     </AlertProvider>
   </React.StrictMode>,

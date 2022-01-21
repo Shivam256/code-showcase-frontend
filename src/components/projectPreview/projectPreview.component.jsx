@@ -23,7 +23,7 @@ const ProjectPreview = ({ imageUrl,project }) => {
         navigate(`/project/${project._id}`);
       }}
     >
-      <Icon icon="clarity:bookmark-line" className="bookmarkIcon" color="#fff"/>
+      {/* <Icon icon="clarity:bookmark-line" className="bookmarkIcon" color="#fff"/> */}
 
       <div className="project-info-bar">
         <h3 className="projectName">{project.title}</h3>

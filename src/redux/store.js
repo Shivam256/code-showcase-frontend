@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-
+import {persistStore} from 'redux-persist';
 import rootReducer from './rootReducer';
 
 const store = configureStore({
@@ -7,4 +7,6 @@ const store = configureStore({
     devTools:process.env.NODE_ENV !== "production"
 })
 
-export default store;
+const persistor = persistStore(store)
+
+export {store,persistor};

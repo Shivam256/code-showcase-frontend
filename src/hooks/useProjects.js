@@ -44,12 +44,18 @@ const useProjects = () => {
     }
   });
 
+  const deleteProject = useCallback(async(id)=>{
+    const res = await axios.delete(`/project/${id}`);
+    console.log(res,"project delete")
+  },[])
+
   return {
     createProject,
     getExploreProjects,
     getProject,
     postComment,
     projects,
+    deleteProject
   };
 };
 

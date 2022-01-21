@@ -13,11 +13,11 @@ const ProjectOverview = ({project}) => {
   return (
     <Grid item md={props.isFullScreen?3:4} onClick={()=>{navigate(`/project/${project._id}`)}}>
       <ProjectOverviewContainer url={project.images[0]}>
-        <Icon
+        {/* <Icon
           icon="clarity:bookmark-line"
           className="bookmarkIcon"
           color="#fff"
-        />
+        /> */}
 
         <div className="project-info-bar">
           <h3 className="projectName">{project.title}</h3>

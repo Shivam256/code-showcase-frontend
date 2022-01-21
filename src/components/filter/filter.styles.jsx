@@ -1,7 +1,7 @@
 import {styled} from '@mui/material';
 
 
-export const FilterIcon = styled("div")(({theme})=>({
+export const FilterIcon = styled("div")(({theme,selected})=>({
     width:'100px',
     height:'100px',
     borderRadius:'100%',
@@ -12,6 +12,7 @@ export const FilterIcon = styled("div")(({theme})=>({
     placeItems:'center',
     margin:'0 10px',
     transition: 'all 0.1s ease-in',
+    border:selected?`5px solid ${theme.palette.colors.primary}`:null,
 
     '& svg':{
         display:'block',

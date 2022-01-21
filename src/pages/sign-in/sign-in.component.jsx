@@ -93,7 +93,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/project/61e9836aa379ef626e673536");
+      navigate("/feed");
     }
   }, [isLoggedIn]);
 
@@ -181,7 +181,7 @@ const SignIn = () => {
             </form>
           </TabPanel>
         </SignInContainer>
-        <div className="icon-button-container">
+        {/* <div className="icon-button-container">
           <div>or</div>
           <IconButton>
             <Icon icon="flat-color-icons:google" />
@@ -189,7 +189,7 @@ const SignIn = () => {
           <IconButton>
             <Icon icon="akar-icons:github-fill" />
           </IconButton>
-        </div>
+        </div> */}
       </SignInContent>
     </SignInPage>
   );

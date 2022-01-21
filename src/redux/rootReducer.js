@@ -1,11 +1,18 @@
 import { combineReducers } from 'redux';
-
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import auth from './slices/auth';
 import project from './slices/project.slice';
 
+const authPersistConfig = {
+    key: 'auth',
+    storage,
+    keyPrefix: 'redux-',
+    blacklist: ['isLoggenIn']
+  };
 
 const rootReducer = combineReducers({
-    auth,
+    auth:persistReducer(authPersistConfig, auth),
     project
 })
 

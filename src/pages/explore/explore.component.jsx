@@ -21,7 +21,7 @@ const Explore = () => {
 
     return (
         <ExplorePage>
-            <SearchBar type="text" placeholder='Search projects' value={searchText} onChange={handleSearch}/>
+            {/* <SearchBar type="text" placeholder='Search projects' value={searchText} onChange={handleSearch}/> */}
             <ProjectsContainer>
                 {/* {
                     exploreImages.map(img => <ProjectPreview imageUrl={img}/>)

@@ -51,6 +51,7 @@ export const ProjectDataContainer = styled(Card)(({ theme }) => ({
   "& .description": {
     color: "#868686",
   },
+
 }));
 
 export const StackContainer = styled(Card)(({ theme }) => ({

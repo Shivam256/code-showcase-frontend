@@ -11,7 +11,7 @@ export const ProjectPreviewContainer = styled(ButtonBase)(({ spanNum, url }) => 
   cursor: "pointer",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
+  justifyContent: "end",
   padding: "10px",
   transition: 'all 0.2s ease-in-out',
   "&:hover": {

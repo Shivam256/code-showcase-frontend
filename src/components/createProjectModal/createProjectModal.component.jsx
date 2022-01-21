@@ -65,9 +65,10 @@ const CreateProjectModal = ({ state, toggleModal }) => {
       (error, result) => {
         if (!error && result && result.event === "success") {
           console.log(result.info.url);
-          setProjectData({...projectData,images:[...projectData.images,result.info.url]})
+          setProjectData({...projectData,images:[...projectData.images,result.info.url]});
+  
         }
-      }
+    }
     );
     widget.open();
   };

@@ -10,7 +10,7 @@ export const ProjectOverviewContainer = styled("div")(({ url }) => ({
   cursor: "pointer",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
+  justifyContent: "end",
   padding: "10px",
   "&:hover": {
     background: `linear-gradient(360deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 20.87%), url('${url}')`,
