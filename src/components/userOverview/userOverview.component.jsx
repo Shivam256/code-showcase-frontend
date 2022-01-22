@@ -1,5 +1,8 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Avatar, Button, styled } from "@mui/material";
+import {Link} from 'react-router-dom';
+import useUsers from "../../hooks/useUsers";
+import {useSelector} from 'react-redux';
 
 const UserOverviewContainer = styled("div")(({theme}) => ({
   width: "100%",
@@ -29,17 +32,47 @@ const UserOverviewContainer = styled("div")(({theme}) => ({
     letterSpacing:1,
     ...theme.palette.textGradients.txtGrad1,
     border:`1px solid ${theme.palette.colors.secondary}`
+  },
+  '& a':{
+    textDecoration:'none',
+    color:'#000'
   }
 }));
 
-const UserOverview = () => {
+const UserOverview = ({user}) => {
+  const [iseFollowing, setIsFollowing] = useState(false);
+
+  const { followUser } = useUsers();
+  const {user:currentUser} = useSelector(state => state.auth);
+
+  const handleIsFollowing = () => {
+    console.log(currentUser.following, "this is user following");
+
+    if (user !== null) {
+      const res = currentUser.following.some((a) => a._id === user._id);
+      console.log(res, "this is the result!");
+      setIsFollowing(res);
+      return res;
+    }
+  };
+
+  useEffect(() => {
+    handleIsFollowing();
+  }, [user]);
+
+  const handleFollow = () => {
+    followUser(user._id);
+    setIsFollowing(true);
+
+  };
+
   return (
     <UserOverviewContainer>
       <div className="innerContainer">
-        <Avatar src="https://wallpapercave.com/uwp/uwp1093460.jpeg" />
-        <span className="username">gojo_satoru</span>
+        <Avatar src={user.profilePic} />
+        <Link className="username" to={`/profile/${user._id}`}>{user.username}</Link>
       </div>
-      <Button>FOLLOW</Button>
+      <Button onClick={handleFollow}>{iseFollowing?'FOLLOWING':'FOLLOW'}</Button>
     </UserOverviewContainer>
   );
 };

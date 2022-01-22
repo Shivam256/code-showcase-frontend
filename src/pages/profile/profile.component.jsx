@@ -81,6 +81,7 @@ const Profile = () => {
 
   const handleFollow = () => {
     followUser(user._id);
+    setIsFollowing(true);
   };
 
   return (

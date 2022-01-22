@@ -89,6 +89,7 @@ const SignIn = () => {
       password: registerUser.password,
     };
     register(registerUserData);
+    navigate("/");
   };
 
   useEffect(() => {
@@ -137,6 +138,7 @@ const SignIn = () => {
                 onChange={handleLoginInInput}
                 required
                 name="password"
+                type="password"
               />
               <CustomButton type="submit">LOG IN</CustomButton>
             </form>

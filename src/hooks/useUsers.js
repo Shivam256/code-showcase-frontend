@@ -32,11 +32,20 @@ const useUsers = () => {
     console.log(res);
   })
 
+  const getAllUsers = useCallback(async()=>{
+    const response = await axios.get('/user');
+    console.log(response,"all users response");
+    if(response.data){
+      return response.data;
+    }
+  },[])
+
   return {
     getUser,
     followUser,
     getUserFeed,
-    updateUserInfo
+    updateUserInfo,
+    getAllUsers
   };
 };
 

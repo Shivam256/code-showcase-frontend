@@ -29,6 +29,7 @@ const Explore = () => {
                 {
                     projects.map(project => <ProjectPreview imageUrl={project.images[0]} project={project}/>)
                 }
+                
             </ProjectsContainer>
         </ExplorePage>
     )
